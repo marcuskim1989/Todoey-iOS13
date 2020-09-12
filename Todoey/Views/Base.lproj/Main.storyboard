@@ -14,9 +14,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="6c7-iz-rGa">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="ma2-hP-LtJ" id="J1b-I5-gu8"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" id="saE-A1-IKm">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="saE-A1-IKm" id="TtD-En-Ij7">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -24,10 +32,6 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ma2-hP-LtJ" id="4a5-1e-FUe"/>
-                            <outlet property="delegate" destination="ma2-hP-LtJ" id="9IU-iZ-puS"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Todoey" id="t8b-S7-7WG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5rG-Ae-Rqc">
@@ -40,7 +44,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o91-ew-gWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="19"/>
+            <point key="canvasLocation" x="377" y="19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ndk-fG-vL5">
