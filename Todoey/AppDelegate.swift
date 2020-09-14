@@ -21,15 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
-        let data = TestData()
-        data.name = "Marcus"
-        data.age = 31
-        
+
         do {
             let realm = try Realm()
-            try realm.write{
-                realm.add(data)
-            }
         } catch {
             print("error initializing new realm \(error)")
         }
