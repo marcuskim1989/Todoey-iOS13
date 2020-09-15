@@ -7,16 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C5DB8CA2511892100CBBE35 /* Pods_Todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25DAB29DD33172E164E303B /* Pods_Todoey.framework */; };
+		2C5DB8CB2511892100CBBE35 /* Pods_Todoey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B25DAB29DD33172E164E303B /* Pods_Todoey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2C7C6095250D9FA800A9F4A7 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C6094250D9FA800A9F4A7 /* CategoryViewController.swift */; };
 		2CBCA20A251013F20031464F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCA209251013F20031464F /* Item.swift */; };
 		2CBCA20C251013FD0031464F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCA20B251013FD0031464F /* Category.swift */; };
-		B4ABC13A4D559CE3B53951EA /* Pods_Todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25DAB29DD33172E164E303B /* Pods_Todoey.framework */; };
 		EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4F9239524DB00FB933B /* AppDelegate.swift */; };
 		EB2BE4FE239524DB00FB933B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */; };
 		EB2BE501239524DB00FB933B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE4FF239524DB00FB933B /* Main.storyboard */; };
 		EB2BE503239524DC00FB933B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE502239524DC00FB933B /* Assets.xcassets */; };
 		EB2BE506239524DC00FB933B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE504239524DC00FB933B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2C5DB8CC2511892100CBBE35 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2C5DB8CB2511892100CBBE35 /* Pods_Todoey.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2C7C6094250D9FA800A9F4A7 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4ABC13A4D559CE3B53951EA /* Pods_Todoey.framework in Frameworks */,
+				2C5DB8CA2511892100CBBE35 /* Pods_Todoey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +148,7 @@
 				EB2BE4F3239524DB00FB933B /* Frameworks */,
 				EB2BE4F4239524DB00FB933B /* Resources */,
 				355700CF4BF927DB341C21D3 /* [CP] Embed Pods Frameworks */,
+				2C5DB8CC2511892100CBBE35 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
