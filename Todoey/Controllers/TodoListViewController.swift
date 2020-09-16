@@ -16,6 +16,8 @@ class TodoListViewController: SwipeTableViewController{
     
     let realm = try! Realm()
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var selectedCategory: Category? {
         didSet {
             loadItems()
@@ -32,10 +34,21 @@ class TodoListViewController: SwipeTableViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         if let colorHex = selectedCategory?.color{
-        
+            
+            title = selectedCategory!.name
             guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist.")}
             
-        navBar.backgroundColor = UIColor(hexString: colorHex)
+            
+            if let navBarColor = UIColor(hexString: colorHex) {
+                
+                navBar.backgroundColor = navBarColor
+                
+                navBar.tintColor = ContrastColorOf((navBarColor), returnFlat: true)
+                
+                navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(navBarColor, returnFlat: true)]
+                
+                searchBar.barTintColor = navBarColor
+            }
         }
         
     }
@@ -54,15 +67,15 @@ class TodoListViewController: SwipeTableViewController{
             cell.textLabel?.text = item.title
             
             if let color = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(todoItems!.count)) {
-            
+                
                 cell.backgroundColor = color
                 cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
                 
             }
-                
-//            print("version 1: \(CGFloat(indexPath.row / todoItems!.count))")
-//
-//            print("version 2: \(CGFloat(indexPath.row) / CGFloat(todoItems!.count))")
+            
+            //            print("version 1: \(CGFloat(indexPath.row / todoItems!.count))")
+            //
+            //            print("version 2: \(CGFloat(indexPath.row) / CGFloat(todoItems!.count))")
             
             cell.accessoryType = item.done ? .checkmark : .none
         } else {
@@ -84,7 +97,7 @@ class TodoListViewController: SwipeTableViewController{
                 }
                 
             } catch {
-                    print("Error saving done status, \(error)")
+                print("Error saving done status, \(error)")
             }
             
         }
@@ -148,7 +161,7 @@ class TodoListViewController: SwipeTableViewController{
             
             do {
                 try realm.write{
-                realm.delete(item)
+                    realm.delete(item)
                 }
             }  catch {
                 
@@ -161,24 +174,24 @@ class TodoListViewController: SwipeTableViewController{
 //MARK: - Search bar methods
 
 extension TodoListViewController: UISearchBarDelegate {
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text).sorted(byKeyPath: "dateCreated", ascending: true )
         
         tableView.reloadData()
         
     }
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItems()
-
+            
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
-
+            
         }
     }
-
+    
 }
