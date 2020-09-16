@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  Destini
-//
-//  Created by Philipp Muellauer on 01/09/2015.
-//  Copyright (c) 2015 London App Brewery. All rights reserved.
-//
+
 
 import UIKit
 import RealmSwift
@@ -20,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
         do {
-            let realm = try! Realm()
+            _ = try Realm()
         } catch {
             print("error initializing new realm \(error)")
         }
