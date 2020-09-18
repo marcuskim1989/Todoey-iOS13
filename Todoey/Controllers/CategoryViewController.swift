@@ -50,7 +50,7 @@ class CategoryViewController: SwipeTableViewController {
         
         if let category = categories?[indexPath.row] {
             
-            cell.textLabel?.text = category.name ?? "No categories added yet"
+            cell.textLabel?.text = category.name 
             
             guard let categoryColor = UIColor(hexString: category.color) else {fatalError()}
             
@@ -67,7 +67,9 @@ class CategoryViewController: SwipeTableViewController {
     //MARK: - TableView Delegate methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
         performSegue(withIdentifier: "goToItems", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
