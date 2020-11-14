@@ -14,6 +14,8 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         super.viewDidLoad()
 
         tableView.rowHeight = 80.0
+        
+        configureNavigationBar(largeTitleColor: .white, backgroundColor: .blue, tintColor: .blue, title: "Todoey", preferredLargeTitle: true)
     }
     
 // TableView Datasource methods
@@ -52,4 +54,32 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         // update data model
     }
     
+  
 }
+
+extension UIViewController {
+func configureNavigationBar(largeTitleColor: UIColor, backgroundColor: UIColor, tintColor: UIColor, title: String, preferredLargeTitle: Bool) {
+    if #available(iOS 13.0, *) {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: largeTitleColor]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: largeTitleColor]
+        navBarAppearance.backgroundColor = backgroundColor
+
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.compactAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+
+        navigationController?.navigationBar.prefersLargeTitles = preferredLargeTitle
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = tintColor
+        navigationItem.title = title
+
+    } else {
+        // Fallback on earlier versions
+        navigationController?.navigationBar.barTintColor = backgroundColor
+        navigationController?.navigationBar.tintColor = tintColor
+        navigationController?.navigationBar.isTranslucent = false
+        navigationItem.title = title
+    }
+}}
